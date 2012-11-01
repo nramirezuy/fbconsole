@@ -24,7 +24,6 @@ import time
 import types
 import urllib
 import webbrowser
-import StringIO
 import six
 from six import b
 
@@ -60,10 +59,11 @@ if six.PY3:
     from urllib.request import Request
     from urllib.parse import urlencode
     from urllib.error import HTTPError
-    from urllib import parse
+    from urllib import parse as urlparse
     from http import server as BaseHTTPServer
     from http import cookiejar as cookielib
     from http import client as httplib
+    import io as StringIO
 else:
     from urllib2 import build_opener
     from urllib2 import HTTPCookieProcessor
@@ -77,6 +77,7 @@ else:
     import BaseHTTPServer
     import cookielib
     import httplib
+    import StringIO
 
 APP_ID = '179745182062082'
 SERVER_PORT = 8080
