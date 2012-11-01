@@ -265,7 +265,7 @@ def _safe_json_load(*args, **kwargs):
 
 def help():
     """Print out some helpful information"""
-    print('''
+    help = '''
 The following commands are available:
 
 help() - display this help message
@@ -277,7 +277,11 @@ get(path, params) - call the graph api with the given path and query parameters
 post(path, data) - post data to the graph api with the given path
 delete(path, params) - send a delete request
 fql(query) - make an fql request
-''')
+'''
+    if six.PY3:
+        print(help)
+    else:
+        print help
 
 def authenticate():
     """Authenticate with facebook so you can make api calls that require auth.
