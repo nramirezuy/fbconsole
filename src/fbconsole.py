@@ -540,7 +540,7 @@ class Client:
                 _MultipartPostHandler)
             try:
                 return json.loads(opener.open(self.__get_url(path), params).read().decode('utf-8'))
-            except HTTPError, e:
+            except HTTPError as e:
                 error = _handle_http_error(e)
             raise error
 
