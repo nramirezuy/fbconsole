@@ -252,7 +252,7 @@ def _safe_url_load(*args, **kwargs):
     """Wrapper around urlopen that translates http errors into nicer exceptions."""
     try:
         return urlopen(*args, **kwargs)
-    except HTTPError, e:
+    except HTTPError as e:
         error = _handle_http_error(e)
     raise error
 
