@@ -14,7 +14,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import cookielib
 import httplib
 import anyjson as json
 import random
@@ -64,6 +63,7 @@ if six.PY3:
     from urllib.parse import urlencode
     from urllib.error import HTTPError
     from http import server as BaseHTTPServer
+    from http import cookiejar as cookielib
 else:
     from urllib2 import build_opener
     from urllib2 import HTTPCookieProcessor
@@ -74,6 +74,7 @@ else:
     from urllib2 import Request
     from urllib import urlencode
     import BaseHTTPServer
+    import cookielib
 
 APP_ID = '179745182062082'
 SERVER_PORT = 8080
