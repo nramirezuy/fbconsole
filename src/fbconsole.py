@@ -265,7 +265,7 @@ def _safe_json_load(*args, **kwargs):
 
 def help():
     """Print out some helpful information"""
-    help = '''
+    h = '''
 The following commands are available:
 
 help() - display this help message
@@ -279,9 +279,9 @@ delete(path, params) - send a delete request
 fql(query) - make an fql request
 '''
     if six.PY3:
-        print(help)
+        print(h)
     else:
-        print help
+        print h
 
 def authenticate():
     """Authenticate with facebook so you can make api calls that require auth.
