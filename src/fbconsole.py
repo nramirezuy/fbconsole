@@ -14,7 +14,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import httplib
 import anyjson as json
 import random
 import mimetypes
@@ -39,7 +38,6 @@ try:
 except ImportError:
     pass # we can live without this.
 
-from urlparse import urlparse
 from pprint import pprint
 
 try:
@@ -62,8 +60,10 @@ if six.PY3:
     from urllib.request import Request
     from urllib.parse import urlencode
     from urllib.error import HTTPError
+    from urllib import parse
     from http import server as BaseHTTPServer
     from http import cookiejar as cookielib
+    from http import client as httplib
 else:
     from urllib2 import build_opener
     from urllib2 import HTTPCookieProcessor
@@ -73,8 +73,10 @@ else:
     from urllib2 import HTTPError
     from urllib2 import Request
     from urllib import urlencode
+    from urlparse import urlparse
     import BaseHTTPServer
     import cookielib
+    import httplib
 
 APP_ID = '179745182062082'
 SERVER_PORT = 8080
